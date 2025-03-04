@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeforeUnload Alert</title>
+</head>
+<body>
+
+    <h1>Provo të largohesh nga faqja!</h1>
+
+    <script>
+        window.addEventListener("beforeunload", function(event) {
+            event.preventDefault();
+            event.returnValue = "Jeni i sigurt që dëshironi të largoheni?";
+        });
+    </script>
+
+</body>
+</html>

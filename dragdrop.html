@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag & Drop Events</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #dragBox {
+            width: 100px;
+            height: 100px;
+            background: red;
+            text-align: center;
+            color: white;
+            line-height: 100px;
+            cursor: grab;
+            user-select: none;
+        }
+        #dropZone {
+            width: 200px;
+            height: 200px;
+            border: 2px dashed black;
+            margin: 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .drop-hover {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tërhiq kutinë dhe lëshoje në zonën e bardhë</h1>
+    <div id="dragBox" draggable="true">Tërhiq Mua</div>
+    <div id="dropZone">Lësho këtu</div>
+    <p id="dragMessage"></p>
+
+    <script>
+        let dragBox = document.getElementById("dragBox");
+        let dropZone = document.getElementById("dropZone");
+        let message = document.getElementById("dragMessage");
+
+        dragBox.addEventListener("dragstart", function(event) {
+            event.dataTransfer.setData("text", event.target.id);
+            message.innerText = "🛠️ Po tërhiqet elementi...";
+        });
+
+        dropZone.addEventListener("dragover", function(event) {
+            event.preventDefault();
+            dropZone.classList.add("drop-hover");
+        });
+
+        dropZone.addEventListener("dragleave", function() {
+            dropZone.classList.remove("drop-hover");
+        });
+
+        dropZone.addEventListener("drop", function(event) {
+            event.preventDefault();
+            let data = event.dataTransfer.getData("text");
+            dropZone.appendChild(document.getElementById(data));
+            dropZone.classList.remove("drop-hover");
+            message.innerText = "✅ Elementi u lëshua me sukses!";
+        });
+    </script>
+
+</body>
+</html>

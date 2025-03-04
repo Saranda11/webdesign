@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Event</title>
+</head>
+<body>
+
+    <form id="myForm">
+        <label for="name">Emri:</label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Dërgo</button>
+    </form>
+
+    <p id="submitMessage"></p>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Parandalon rifreskimin e faqes
+            document.getElementById("submitMessage").innerText = "Formulari u dorëzua me sukses!";
+        });
+    </script>
+
+</body>
+</html>

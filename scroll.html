@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventi Scroll</title>
+    <style>
+        body {
+            height: 200vh; /* E bëjmë faqen e gjatë për të testuar scroll */
+            text-align: center;
+        }
+        #scrollIndicator {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: black;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Bëj scroll në faqe</h1>
+    <div id="scrollIndicator">Ke bërë scroll!</div>
+
+    <script>
+        window.addEventListener("scroll", function() {
+            let indicator = document.getElementById("scrollIndicator");
+
+            if (window.scrollY > 50) {
+                indicator.style.display = "block";
+            } else {
+                indicator.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

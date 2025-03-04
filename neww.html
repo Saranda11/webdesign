@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Event</title>
+</head>
+<body>
+
+    <label for="color">Zgjidh një ngjyrë:</label>
+    <select id="color">
+        <option value="kuqe">E Kuqe</option>
+        <option value="gjelber">E Gjelbër</option>
+        <option value="blu">E Kaltër</option>
+    </select>
+
+    <p id="colorMessage"></p>
+
+    <script>
+        document.getElementById("color").addEventListener("change", function(event) {
+            document.getElementById("colorMessage").innerText = "Ju zgjodhët ngjyrën: " + event.target.value;
+        });
+    </script>
+
+</body>
+</html>

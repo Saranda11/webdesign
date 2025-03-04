@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resize Event - Ndryshimi i Dizajnit</title>
+    <style>
+        body {
+            text-align: center;
+            transition: background 0.5s;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            transition: all 0.5s;
+            display: inline-block;
+        }
+        .large {
+            background: lightblue;
+            font-size: 24px;
+            padding: 40px;
+        }
+        .small {
+            background: lightcoral;
+            font-size: 18px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ndrysho madhësinë e dritares!</h1>
+    <p>Kur gjerësia e dritares është më e vogël se 600px, dizajni ndryshon.</p>
+
+    <div id="box" class="container large">Gjerësia e dritares: <span id="width"></span> px</div>
+
+    <script>
+        function updateSize() {
+            let width = window.innerWidth;
+            let box = document.getElementById("box");
+
+            document.getElementById("width").innerText = width;
+
+            if (width < 600) {
+                box.classList.remove("large");
+                box.classList.add("small");
+                document.body.style.backgroundColor = "#ffcccb"; // E kuqe e lehtë kur dritarja është e vogël
+            } else {
+                box.classList.remove("small");
+                box.classList.add("large");
+                document.body.style.backgroundColor = "#add8e6"; // Blu e lehtë kur dritarja është e madhe
+            }
+        }
+
+        window.addEventListener("resize", updateSize);
+        updateSize(); // Thirret një herë kur faqja hapet
+    </script>
+
+</body>
+</html>

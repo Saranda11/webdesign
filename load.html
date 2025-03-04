@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventi Load</title>
+</head>
+<body>
+
+    <h1>Faqja po ngarkohet...</h1>
+    <p id="message" style="display: none; font-size: 18px; color: green;">✅ Faqja është ngarkuar plotësisht!</p>
+
+    <script>
+        window.addEventListener("load", function() {
+            document.getElementById("message").style.display = "block"; // Shfaq mesazhin kur faqja ngarkohet
+            console.log("Faqja është ngarkuar plotësisht!");
+        });
+    </script>
+
+</body>
+</html>

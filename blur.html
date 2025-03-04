@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blur Event</title>
+</head>
+<body>
+
+    <label for="username">Emri i përdoruesit:</label>
+    <input type="text" id="username">
+    <p id="blurMessage"></p>
+
+    <script>
+        document.getElementById("username").addEventListener("blur", function(event) {
+            if (event.target.value === "") {
+                document.getElementById("blurMessage").innerText = "Fusha nuk mund të jetë bosh!";
+            } else {
+                document.getElementById("blurMessage").innerText = "";
+            }
+        });
+    </script>
+
+</body>
+</html>

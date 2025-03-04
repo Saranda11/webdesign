@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Events</title>
+</head>
+<body>
+
+    <h2>Shtyp një tast për të parë ngjarjet e tastierës!</h2>
+    <p id="output"></p>
+
+    <script>
+        // Kemi një referencë për të shfaqur rezultatet në faqe
+        let output = document.getElementById("output");
+
+        // Ngjarja "keydown" (kur shtypet një tast poshtë)
+        document.addEventListener("keydown", function(event) {
+            console.log(`keydown: ${event.key}`);
+            output.innerHTML = `<b>keydown:</b> U shtyp tasti "${event.key}"`;
+        });
+
+        // Ngjarja "keyup" (kur lëshohet një tast)
+        document.addEventListener("keyup", function(event) {
+            console.log(`keyup: ${event.key}`);
+            output.innerHTML = `<b>keyup:</b> U lëshua tasti "${event.key}"`;
+        });
+
+        // Ngjarja "keypress" (kur shtypet një tast - i vjetëruar)
+        document.addEventListener("keypress", function(event) {
+            console.log(`keypress: ${event.key}`);
+            output.innerHTML = `<b>keypress:</b> U shtyp tasti "${event.key}" (keypress - i vjetëruar)`;
+        });
+    </script>
+
+</body>
+</html>

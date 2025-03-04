@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Event - Interaktiv</title>
+    <style>
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid gray;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus {
+            border-color: blue;
+            box-shadow: 0 0 8px rgba(0, 0, 255, 0.5);
+        }
+        .message {
+            font-size: 14px;
+            color: gray;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Shkruaj Email-in tënd</h2>
+    <input type="email" id="email" placeholder="Shkruaj email-in">
+    <p id="focusMessage" class="message">Email-i duhet të përfundojë me @gmail.com</p>
+
+    <script>
+        let emailInput = document.getElementById("email");
+        let message = document.getElementById("focusMessage");
+
+        emailInput.addEventListener("focus", function() {
+            message.style.display = "block"; // Shfaq mesazhin kur inputi merr fokus
+        });
+
+        emailInput.addEventListener("blur", function() {
+            message.style.display = "none"; // Fshih mesazhin kur përdoruesi largohet
+        });
+    </script>
+
+</body>
+</html>
